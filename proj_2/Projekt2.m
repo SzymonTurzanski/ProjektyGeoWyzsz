@@ -31,6 +31,7 @@ end
 % odleglość zenitalna dla każdej godziny
 cos_z = sind(phi).*sind(deklinacja) + cosd(phi).*cosd(deklinacja).*cosd(kot_godzinowy);
 z = acosd(cos_z);
+wysokosc = 90 - z;
 
 % Azymut gwiazdy dla każdej godziny
 licznik = -cosd(deklinacja).*sind(kot_godzinowy);
@@ -50,15 +51,18 @@ y = 1.*sind(z).*sind(Az);
 z = 1.*cosd(z);
 
 % Wizualizacja półkuli 
-[X,Y,Z] = sphere(24);
-X = X(13:end,:);
-Y = Y(13:end,:);
-Z = Z(13:end,:);
-surf(X,Y,Z,'FaceColor','green','FaceAlpha',0.5)
-axis equal, 
-hold on;
-% Wizualizacja gwiazdy
-scatter3(x,y,z, 500, 'red', '.')
+%[X,Y,Z] = sphere(24);
+%X = X(13:end,:);
+%Y = Y(13:end,:);
+%Z = Z(13:end,:);
+%surf(X,Y,Z,'FaceColor','green','FaceAlpha',0.5)
+%axis equal, 
+%hold on;
+%% Wizualizacja gwiazdy
+%scatter3(x,y,z, 500, 'red', '.')
+
+plot(h, wysokosc)
+%plot(h, z)
 
 
 function [t] = katgodz(y, m, d, h, lambda, alfa)
@@ -76,4 +80,5 @@ function g = GMST(jd)
     T = (jd - 2451545) / 36525;
     g = 280.46061837 + 360.98564736629  * (jd - 2451545.0) + 0.000387933*T.^2 - T.^3/38710000;
     g = mod(g, 360);
+
 end
