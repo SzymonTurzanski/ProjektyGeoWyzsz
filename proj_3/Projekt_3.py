@@ -59,7 +59,7 @@ def vincent(A, B):
 
     s_AB = b*A*(sigma - delta_sigma)
 
-   #obliczanie azymutu
+    # obliczanie azymutu
     X_A_ab = cos(Ub)*sin(L)
     Y_A_ab = cos(Ua)*sin(Ub) - sin(Ua)*cos(Ub)*cos(L)
     A_ab = arctan(X_A_ab/Y_A_ab)
@@ -114,7 +114,7 @@ def kivioji():
         Lambda_A = Lambda_A + Lambda_przyrost
         A_ab = A_ab + Az_przyrost
 
-    return degrees(Phi_A), degrees(Lambda_A), degrees(A_ab)
+    return [degrees(Phi_A), degrees(Lambda_A)], degrees(A_ab)
 
 
 def angles_formatting(degrees):
@@ -131,13 +131,15 @@ def angles_formatting(degrees):
 
 
 def azymuty_pomiedzy_punktami():
-    Azymut, odwrotny = vincent(kivioji()[:2], Mean)[1:]
-    return Azymut - degrees(pi), odwrotny - degrees(pi)
+    Azymut, odwrotny = vincent(kivioji()[0], Mean)[1:]
+    return [Azymut - degrees(pi), odwrotny - degrees(pi)]
 
 
 def surface_area(A, B):
-    A = [radians(i) for i in A]
-    B = [radians(i) for i in B]
+    for i in range(0, 2):
+        A[i] = radians(A[i])
+        B[i] = radians(B[i])
+
     e = sqrt(e2)
     Phi_A = sin(A[0])/(1 - e2*(sin(A[0])**2)) + log((1+e*sin(A[0]))/(1-e*sin(A[0])))/(2*e)
     Phi_B = sin(B[0])/(1 - e2*(sin(B[0])**2)) + log((1+e*sin(B[0]))/(1-e*sin(B[0])))/(2*e)
@@ -160,12 +162,18 @@ print(f"")
 print(f"   {angles_formatting(vincent(A, D)[2])}")
 print(f"")
 print(f"Współrzędne punktu środkowego: ")
-print(f"Phi:{angles_formatting(kivioji()[0])}    lambda:{angles_formatting(kivioji()[1])}    Azymut:{angles_formatting(kivioji()[2])}")
+print(f"Phi:{angles_formatting(kivioji()[0][0])}    lambda:{angles_formatting(kivioji()[0][1])}    Azymut:{angles_formatting(kivioji()[1])}")
 print(f"")
 print(f"Odleglosc miedzy punktem średniej szerokości, a środkowym: ")
 print(f"")
-print(f"{round(vincent(Mean, kivioji())[0], 3)}m")
+print(f"{round(vincent(Mean, kivioji()[0])[0], 3)}m")
 print(f"")
-print(f"Azumyt pierwotny: {angles_formatting(azymuty_pomiedzy_punktami()[0])} ")
-print(f"Azymut odwrotny:  {angles_formatting(azymuty_pomiedzy_punktami()[1])} ")
+print(f"Azumyt:  ")
+print(f"")
+print(f"    {angles_formatting(azymuty_pomiedzy_punktami()[0])}")
+print(f"")
+print(f"Azymut odwrotny:   ")
+print(f"")
+print(f"    {angles_formatting(azymuty_pomiedzy_punktami()[1])}")
+print(f"")
 print(f"Pole powierzchni czworokąta: {surface_area(A, D)}m^2")
