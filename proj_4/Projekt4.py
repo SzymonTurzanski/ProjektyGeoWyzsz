@@ -293,32 +293,42 @@ odw2000S = u2ktoFL(FLto2000S[0], FLto2000S[1])
 
 GKA_skala = GK_skala(gkA[1], odwGKA[0])
 print("GKA_skala", GKA_skala)
+
 GKB_skala = GK_skala(gkB[1], odwGKB[0])
 print("GKB_skala", GKB_skala)
+
 GKC_skala = GK_skala(gkC[1], odwGKC[0])
 print("GKC_skala", GKC_skala)
+
 GKD_skala = GK_skala(gkD[1], odwGKD[0])
 print("GKD_skala", GKD_skala)
+
 GKSS_skala = GK_skala(gkSS[1], odwGKSS[0])
 print("GKSS_skala", GKSS_skala)
+
 GKS_skala = GK_skala(gkS[1], odwGKS[0])
 print("GKS_skala", GKS_skala)
 
 skala_1992A = GKA_skala[0] * 0.9993
 skala_1992A = [skala_1992A, (skala_1992A - 1) * 1000]
 print("skala_1992A", skala_1992A)
+
 skala_1992B = GKB_skala[0] * 0.9993
 skala_1992B = [skala_1992B, (skala_1992B - 1) * 1000]
 print("skala_1992B", skala_1992B)
+
 skala_1992C = GKC_skala[0] * 0.9993
 skala_1992C = [skala_1992C, (skala_1992C - 1) * 1000]
 print("skala_1992C", skala_1992C)
+
 skala_1992D = GKD_skala[0] * 0.9993
 skala_1992D = [skala_1992D, (skala_1992D - 1) * 1000]
 print("skala_1992D", skala_1992D)
+
 skala_1992SS = GKSS_skala[0] * 0.9993
 skala_1992SS = [skala_1992SS, (skala_1992SS - 1) * 1000]
 print("skala_1992SS", skala_1992SS)
+
 skala_1992S = GKS_skala[0] * 0.9993
 skala_1992S = [skala_1992S, (skala_1992S - 1) * 1000]
 print("skala_1992S", skala_1992S)
@@ -327,18 +337,23 @@ print("skala_1992S", skala_1992S)
 skala_2000A = GKA_skala[0] * 0.999923
 skala_2000A = [skala_2000A, (skala_2000A - 1) * 1000]
 print("skala_2000A", skala_2000A)
+
 skala_2000B = GKB_skala[0] * 0.999923
 skala_2000B = [skala_2000B, (skala_2000B - 1) * 1000]
 print("skala_2000B", skala_2000B)
+
 skala_2000C = GKC_skala[0] * 0.999923
 skala_2000C = [skala_2000C, (skala_2000C - 1) * 1000]
 print("skala_2000C", skala_2000C)
+
 skala_2000D = GKD_skala[0] * 0.999923
 skala_2000D = [skala_2000D, (skala_2000D - 1) * 1000]
 print("skala_2000D", skala_2000D)
+
 skala_2000SS = GKSS_skala[0] * 0.999923
 skala_2000SS = [skala_2000SS, (skala_2000SS - 1) * 1000]
 print("skala_2000SS", skala_2000SS)
+
 skala_2000S = GKS_skala[0] * 0.999923
 skala_2000S = [skala_2000S, (skala_2000S - 1) * 1000]
 print("skala_2000S", skala_2000S)
@@ -369,6 +384,21 @@ m2_skala_2000SS = [skala_2000SS[0] ** 2, (skala_2000SS[0] ** 2 - 1) * 10000]
 print ("m2_skala_2000SS", m2_skala_2000SS)
 m2_skala_2000S = [skala_2000S[0] ** 2, (skala_2000S[0] ** 2 - 1) * 10000]
 print ("m2_skala_2000S", m2_skala_2000S)
+
+m2_skala_1992A = [skala_1992A[0] ** 2, (skala_1992A[0] ** 2 -1) * 10000]
+print ("m2_skala_1992A", m2_skala_1992A)
+m2_skala_1992B = [skala_1992B[0] ** 2, (skala_1992B[0] ** 2 -1) * 10000]
+print ("m2_skala_1992B", m2_skala_1992B)
+m2_skala_1992C = [skala_1992C[0] ** 2, (skala_1992C[0] ** 2 -1) * 10000]
+print ("m2_skala_1992C", m2_skala_1992C)
+m2_skala_1992D = [skala_1992D[0] ** 2, (skala_1992D[0] ** 2 -1) * 10000]
+print ("m2_skala_1992D", m2_skala_1992D)
+m2_skala_1992SS = [skala_1992SS[0] ** 2, (skala_1992SS[0] ** 2 -1) * 10000]
+print ("m2_skala_1992SS", m2_skala_1992SS)
+m2_skala_1992S = [skala_1992S[0] ** 2, (skala_1992SS[0] ** 2 -1) * 10000]
+print ("m2_skala_1992S", m2_skala_1992S)
+
+
 
 print(f" Pole elipsoidalne z poprzedniego zadania 994265196.080189")
 
